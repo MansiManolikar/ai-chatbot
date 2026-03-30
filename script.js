@@ -4,7 +4,7 @@ let btn=document.querySelector("#btn");
 let chatContainer=document.querySelector(".chat-container");
 let userMessage=null;
 
-let Api_Url=''//add here your gemini api
+let Api_Url='https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyB1Y1mqkp9BxwNf6FJWhARNasavFZxSurA'
 
 function createChatBox(html,className){
  let div=document.createElement("div");
@@ -27,8 +27,10 @@ let response=await fetch(Api_Url,{
     method:"POST",
     headers:{"Content-Type": "application/json"},
 
-    body:JSON.stringify({contents: [{
-        "parts":[{text:userMessage}]}]
+    body:JSON.stringify({contents: [{       
+
+
+        "parts":[{text:userMessage}]}]  
 
 
     })
@@ -41,7 +43,7 @@ console.log(apiResponse);
 textElement.innerText=apiResponse;
 scrollToBottom();
 
-                               /*chatContainer.scrollTop = chatContainer.scrollHeight;*/
+   /*chatContainer.scrollTop = chatContainer.scrollHeight;*/
 }
 
 catch(error){
@@ -86,6 +88,8 @@ btn.addEventListener("click",()=>{
         container.style.display="none"
     }
     if(!userMessage) return;
+
+    
     let html=`<div class="img"><img src="user.png" alt="" width="50">
     </div>
 <p class="text"></p>`;
@@ -105,3 +109,7 @@ setTimeout(showLoading,500);
 
 
 })
+
+
+create table student(ID int, Name varchar(50));
+ 
